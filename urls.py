@@ -2,20 +2,20 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from tagging.views import tagged_object_list
 from photologue.models import Gallery
-from blog.feeds import LatestPosts
-from main.feeds import LatestGalleries
+from morrislum.blog.feeds import LatestPosts
+from morrislum.main.feeds import LatestGalleries
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    url(r'^about/$', 'main.views.about', name='about'),
-    url(r'^cv/$', 'main.views.resume', name='cv'),
-    url(r'exhibition/(?P<slug>.+)/$', 'main.views.exhibition', name='exhibition'),
-    url(r'^$', 'main.views.index', name='home'),
+    url(r'^about/$', 'morrislum.main.views.about', name='about'),
+    url(r'^cv/$', 'morrislum.main.views.resume', name='cv'),
+    url(r'exhibition/(?P<slug>.+)/$', 'morrislum.main.views.exhibition', name='exhibition'),
+    url(r'^$', 'morrislum.main.views.index', name='home'),
     (r'^comments/', include('django.contrib.comments.urls')),
-    (r'^blog/', include('blog.urls')),
+    (r'^blog/', include('morrislum.blog.urls')),
 )
 
 if settings.DEBUG:

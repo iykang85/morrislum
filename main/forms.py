@@ -1,6 +1,6 @@
 from django import forms
-from main.models import Profile, Resume
-from blog.widgets import FCKEditor
+from models import Profile, Resume
+from morrislum.blog.widgets import FCKEditor
 
 class ProfileAdminForm(forms.ModelForm):
     content = forms.CharField(widget=FCKEditor())

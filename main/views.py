@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext 
 from photologue.models import Gallery
-from blog.models import Post
-from main.models import Profile, Resume, Exhibition
+from morrislum.blog.models import Post
+from models import Profile, Resume, Exhibition
 
 def index(request):
     latest_post = None 

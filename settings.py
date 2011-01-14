@@ -64,10 +64,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'morris.middleware.SetRemoteAddrFromForwardedFor',
+    'morrislum.middleware.SetRemoteAddrFromForwardedFor',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'morrislum.urls'
 
 TEMPLATE_DIRS = (os.path.join(SITE_ROOT, 'templates'),)
 
@@ -82,8 +82,8 @@ INSTALLED_APPS = (
     'photologue',
     'django.contrib.markup',
     'django.contrib.comments',
-    'main',
-    'blog',
+    'morrislum.main',
+    'morrislum.blog',
 )
 
 # Photologue

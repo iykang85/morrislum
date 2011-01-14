@@ -1,6 +1,6 @@
 from django import forms
-from blog.models import Post
-from blog.widgets import FCKEditor
+from models import Post
+from widgets import FCKEditor
 
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=FCKEditor())

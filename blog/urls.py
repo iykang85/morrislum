@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from tagging.views import tagged_object_list
-from blog.models import *
+from models import *
 
 # galleries
 blog_args = {

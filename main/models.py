@@ -96,5 +96,5 @@ class GalleryModerator(CommentModerator):
         return not spam and allow
 
 
-moderator.register(Gallery, GalleryModerator)
+#moderator.register(Gallery, GalleryModerator)
 

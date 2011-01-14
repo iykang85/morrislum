@@ -65,7 +65,7 @@ class PostModerator(CommentModerator):
         spam = self.check_spam(request, comment, key=settings.AKISMET_API_KEY)
         return not spam and allow
 
-moderator.register(Post, PostModerator)
+#moderator.register(Post, PostModerator)
 
 class BlogrollLink(models.Model):
     title = models.CharField('title', max_length=100)

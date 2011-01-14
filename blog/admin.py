@@ -1,6 +1,6 @@
 from django.contrib import admin
-from blog.models import Post, BlogrollLink
-from blog.forms import PostAdminForm
+from models import Post, BlogrollLink
+from forms import PostAdminForm
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm

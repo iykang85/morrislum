@@ -1,6 +1,6 @@
 from django.contrib import admin
-from main.models import *
-from main.forms import ProfileAdminForm, ResumeAdminForm
+from models import *
+from forms import ProfileAdminForm, ResumeAdminForm
 
 class ContactInline(admin.TabularInline):
     model = Contact 

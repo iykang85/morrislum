@@ -1,7 +1,7 @@
 from django import template
 from django.template import resolve_variable
 from django.core.urlresolvers import reverse
-from main.models import Profile, Link, Exhibition
+from morrislum.main.models import Profile, Link, Exhibition
 from photologue.models import Gallery
 
 register = template.Library()
