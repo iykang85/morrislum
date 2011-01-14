@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} &raquo; About{% endblock %}
+{% block subheading %}About{% endblock %}
+{% block bodyclass %}about{% endblock %}
+
+{% block content %}
+    {{ profile|safe }}
+
+    <p class="resume"><a href="{% url cv %}">Morris Lum's CV &raquo;</a></p>
+{% endblock %}

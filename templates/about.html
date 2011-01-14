@@ -1,0 +1,7 @@
+<h3>About Me</h3>
+<div class="content">
+    <p>
+        {{ profile.content|safe|striptags|linebreaksbr|truncatewords:140 }}
+    </p>
+</div>
+<p class="more"><a href="{% url about %}">read more &raquo;</a></p>

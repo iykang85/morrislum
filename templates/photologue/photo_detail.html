@@ -1,0 +1,23 @@
+{% extends "photologue/root.html" %}
+
+{% load photologue_tags %}
+
+{% block title %}{{ block.super}} &raquo; {{ object.title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ object.title }}</h1>
+<div class="gallery-photo full-photo">
+    <a rel="lightbox" href="{{ object.get_display_url }}"><img src="{{ object.get_small_display_url }}" alt="{{ object.title }}"/></a>
+    {% if object.caption %}<p>{{ object.caption }}</p>{% endif %}
+</div>
+{% if object.public_galleries %}
+<p class="other">This photo is found in the following galleries:</p>
+<ol>
+{% for gallery in object.public_galleries %}
+    <li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
+{% endfor %}
+</ol>
+{% endif %}
+
+{% endblock %}

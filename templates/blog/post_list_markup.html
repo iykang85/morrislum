@@ -1,0 +1,18 @@
+<div class="post list">
+    {% for post in posts %}
+        <div class="post-content{% if forloop.last %} last{% endif %}">
+            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }} &raquo;</a></h3>
+            {% include "blog/post_detail_markup.html" %}
+        </div>
+    {% empty %}
+        <p>No posts were found.</p>
+    {% endfor %}
+
+    {% if is_paginated %}
+        <p>{{ hits }} posts total.</p>
+        <div id="page_controls">
+            <p>{% if has_previous %}<a href="{% url blog-list previous %}">Previous</a> | {% endif %} page {{ page }} of {{ pages }} {% if has_next %}| <a href="{% url blog-list next %}">Next</a>{% endif %}</p>
+        </div>
+    {% endif %}
+</div>
+

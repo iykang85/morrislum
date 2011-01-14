@@ -1,0 +1,7 @@
+{{ obj.description }}
+
+<p>
+    {% for p in obj.sample %}
+        <img src="{{ p.get_thumbnail_url }}" alt=""/>
+    {% endfor %}
+</p>

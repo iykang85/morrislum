@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} &raquo; Galleries{% endblock %}
+{% block bodyclass %}gallery{% endblock %}
+{% block galleryclass %}active{% endblock %}
+
+{% block rss %}
+<link rel="alternate" type="application/rss+xml" title="Morris Lum's Galleries - RSS" href="/feeds/gallery/" />
+{% endblock %}
+
+{% block extrabody %}
+<script type="text/javascript">
+$(function() {
+    $('#content a[rel=lightbox]').lightBox({
+            imageLoading: '{{ MEDIA_URL }}img/lightbox-ico-loading.gif',
+            imageBtnClose: '{{ MEDIA_URL }}img/lightbox-btn-close.gif',
+            imageBtnPrev: '{{ MEDIA_URL }}img/lightbox-btn-prev.gif',
+            imageBtnNext: '{{ MEDIA_URL }}img/lightbox-btn-next.gif'
+    });
+});
+</script>
+{% endblock %}
+

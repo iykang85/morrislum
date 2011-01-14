@@ -1,0 +1,23 @@
+<ul class="galleries">
+    {% for g in galleries|slice:":20" %}
+    <li>
+        <a href="{{ g.get_absolute_url }}">
+            {{ g.title }} <span class="date">({{ g.date_added|date:"m/d/Y" }})</span>
+        </a>
+    </li>
+    {% empty %}
+    <li>No galleries were found.</li>
+    {% endfor %}
+</ul>
+
+{% load humanize %}
+{% with galleries|slice:"20:"|length as more %}
+    {% if more %}
+    <p class="more">
+        <a href="{% url pl-gallery-list 5 %}" title="See all galleries">
+            &laquo; {{ more|apnumber|capfirst }} more galler{{ more|pluralize:"y,ies" }}
+        </a>
+    </p>
+    {% endif %}
+{% endwith %}
+

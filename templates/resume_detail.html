@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} &raquo; CV{% endblock %}
+{% block subheading %}CV{% endblock %}
+{% block bodyclass %}resume{% endblock %}
+
+{% block content %}
+    {% if resume.pdf %}
+        <p>[ <a href="{{ resume.pdf.url }}">Download a PDF copy</a> ]</p>
+    {% endif %}
+    {{ resume.content|safe}}
+{% endblock %}

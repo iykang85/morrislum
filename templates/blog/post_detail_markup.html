@@ -1,0 +1,26 @@
+{{ post.content|safe }}
+
+{% load tagging_tags %}
+{% tags_for_object post as tags %}
+<p class="tags">
+    <img src="{{ MEDIA_URL}}img/icons/tag.gif" alt="Tagged with" title="Post tags"/>
+    {% for t in tags %}
+        <a href="{% url blog-tag-detail tag=t.name %}">{{ t.name }}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}
+</p>
+
+<p class="comments">
+    <img src="{{ MEDIA_URL}}img/icons/comment.gif" alt="" title="Post comments"/>
+    {% if post.enable_comments %}
+        {% load comments %}
+        {% get_comment_count for post as comment_count %}
+        <a href="{{ post.get_absolute_url}}#comments">comment{{ comment_count|pluralize }} ({{ comment_count }})</a> | 
+        <img src="{{ MEDIA_URL}}img/icons/plus.gif" alt=""/> 
+        <a href="{{ post.get_absolute_url}}#comment-form">add a comment</a>
+    {% else %}
+        comments are disabled
+    {% endif %}
+</p>
+
+<p class="date">Posted on {{ post.pub_date|date:"l, F jS, Y" }} at {{ post.pub_date|time:"h:i A" }}</p>
+

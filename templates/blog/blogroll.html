@@ -1,0 +1,12 @@
+<h3>Blogroll</h3>
+<ul class="links">
+    {% for l in links %}
+    <li>
+        <a href="{{ l.url }}" class="external">
+            {{ l.title }}
+        </a>
+    </li>
+    {% empty %}
+    <li>No links were found.</li>
+    {% endfor %}
+</ul>

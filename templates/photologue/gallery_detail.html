@@ -1,0 +1,129 @@
+{% extends "photologue/root.html" %}
+
+{% block title %}{{ block.super }} &raquo; {{ object.title }}{% endblock %}
+{% block subheading %}{{ object.title }}{% endblock %}
+
+{% load comments %}
+
+{% block content %}
+
+<div class="meta">
+    <p class="title">Title: {{ object.title }}</p>
+    <p class="date">Published: {{ object.date_added|date:"l, F jS, Y" }}</p>
+    {% if object.description %}<p class="description">{{ object.description|linebreaksbr }}</p>{% endif %}
+
+    {% load tagging_tags %}
+    {% tags_for_object object as tags %}
+    {% if tags %}
+        <p class="tags">
+            <img src="{{ MEDIA_URL}}img/icons/tag.gif" alt="Tagged with" title="Gallery tags"/>
+            {% for t in tags %}
+                <a href="{% url gallery-tag-detail tag=t.name %}">{{ t.name }}</a>{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        </p>
+    {% endif %}
+</div>
+
+<div class="photo-gallery full clearfix">
+    {% for photo in object.public %}
+    <div class="gallery-photo{% if forloop.counter|divisibleby:"3" %} third{% endif %}">
+        <a rel="lightbox" href="{{ photo.get_display_url }}" title="{{ photo.title }}">
+            <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% load markup %}
+<div id="comments">
+    <h4>Comments</h4>
+    {% get_comment_list for object as comment_list %}
+    <ol class="comments">
+    {% for c in comment_list %}
+        <li class="comment{% ifequal curr_comment c.id %} active{% endifequal %}" id="comment-{{ c.id }}">
+            {% spaceless %}
+            <p class="meta">
+                {% if c.user_url %}
+                <span class="user"><a href="{{ c.user_url }}">{{ c.user_name }} </a></span>
+                {% else %}
+                <span class="user">{{ c.user_name }}</span>
+                {% endif %}
+                wrote on {{ c.submit_date|date:"m/d/Y" }} at {{ c.submit_date|time:"h:i A" }}:
+            </p>
+            {% endspaceless %}
+            {{ c.comment|markdown }}
+        </li>
+    {% empty %}
+        <li class="empty">No comments posted yet.</li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="comment-form">
+    {% with object.get_absolute_url as next %}
+    <h4>Post a comment</h4>
+    <p class="meta">Format your comment with <a href="http://daringfireball.net/projects/markdown/" id="markdown-ref-link">Markdown</a>.</p>
+
+    <div id="markdown-ref">
+        <p class="title">Quick Markdown Reference</p>
+
+        <div class="ref">
+            <h5>Emphasis</h5>
+            <pre>
+*italics*
+**bold**
+            </pre>
+            <p>Produces:</p>
+            <p><em>italics</em></p>
+            <p><strong>bold</strong></p>
+        </div>
+        <div class="ref">
+            <h5>Links</h5>
+            <pre>
+This is an [example link](http://example.com/).
+            </pre>
+            <p>Produces:</p>
+            <p>This is an <a href="http://example.com/">example link</a>.</p>
+
+        </div>
+    <p class="more">Read more about Markdown <a href="http://daringfireball.net/projects/markdown/" class="external">here</a></p>
+    </div>
+
+    {% render_comment_form for object %}
+    {% endwith %}
+</div>
+
+{% endblock %}
+
+{% block extrabody %}
+{{ block.super }}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#markdown-ref').hide();
+    $('#markdown-ref-link').click(function() {
+        $('#markdown-ref').toggle('slide', { direction: 'up' }, 1000);
+        return false;
+    });
+
+
+    // Check if this is redirect from comment submission
+    var match = window.location.search.match(/(\?|\&)c=(\d)/);
+    if (match) {
+        var cid = match[2];
+        var comment = $('#comment-'+cid);
+        var targetOffset = comment.offset().top;
+        $('html,body').animate({scrollTop: targetOffset}, 1000, function() {
+            comment.animate({
+                borderBottomColor: '#AFD4FF',
+                borderLeftColor: '#AFD4FF',
+                borderRightColor: '#AFD4FF',
+                borderTopColor: '#AFD4FF',
+                backgroundColor: '#AFD4FF'
+            }, 1000);
+        });
+    }
+
+});
+</script>
+{% endblock %}
+

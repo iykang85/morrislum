@@ -1,0 +1,11 @@
+{% extends "blog/root.html" %}
+
+{% block title %}Blog Posts For {{ month|date:"F Y" }}{% endblock %}
+{% block subheading %}Blog Posts For {{ month|date:"F Y" }}{% endblock %}
+
+{% block content %}
+{% with object_list as posts %}
+    {% include "blog/post_list_markup.html" %}
+{% endwith %}
+{% endblock %}
+

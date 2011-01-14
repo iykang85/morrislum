@@ -1,0 +1,11 @@
+{% extends "blog/root.html" %}
+
+{% block title %}{{ block.super }} &raquo; Tag: &#147;{{ tag.name }}&#148;{% endblock %}
+{% block subheading %}Tag: &#147;{{ tag.name }}&#148;{% endblock %}
+
+{% block content %}
+{% with object_list as posts %}
+    {% include "blog/post_list_markup.html" %}
+{% endwith %}
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends "photologue/root.html" %}
+
+{% block title %}{{ block.super }} &raquo; Galleries{% endblock %}
+{% block subheading %}Latest Galleries{% endblock %}
+
+{% block content %}
+{% if latest %}
+    {% for gallery in latest %}
+    <div class="photo-gallery list clearfix">
+        <h3><a href="{{ gallery.get_absolute_url }}" title="Visit this gallery">{{ gallery.title }} &raquo;</a></h3>
+        {% for photo in gallery.sample|slice:sample_size %}
+        <div class="gallery-photo">
+            <a href="{{ gallery.get_absolute_url }}" title="Visit this gallery"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}" width="120" height="90"/></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No galleries were found.</p>
+{% endif %}
+
+{% endblock %}

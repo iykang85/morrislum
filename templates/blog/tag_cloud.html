@@ -1,0 +1,10 @@
+{% load tagging_tags %}
+{% tag_cloud_for_model blog.Post as tags %}
+<h3>Blog Tags</h3>
+<ul class="tag-cloud">
+    {% for t in tags %}
+    <li{% if forloop.last %} class="last"{% endif %}>
+            <a href="{% url blog-tag-detail tag=t.name%}" class="tag-cloud-{{ t.font_size }}">{{ t.name }}</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+{% extends "blog/root.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+{% block subheading %}Blog Posts{% endblock %}
+
+{% block content %}
+{% with latest as posts %}
+    {% include "blog/post_list_markup.html" %}
+{% endwith %}
+{% endblock %}
+

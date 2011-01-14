@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} &raquo; Exhibitions &raquo; {{ exhibition.title }}{% endblock %}
+{% block subheading %}{{ exhibition.title }}{% endblock %}
+{% block bodyclass %}exhibition{% endblock %}
+
+{% block content %}
+    {{ exhibition.description|safe }}
+    <p>Visit <a href="{{ exhibition.url }}" class="external">{{ exhibition.title }}</a></p>
+{% endblock %}

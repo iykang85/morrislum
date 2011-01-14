@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block bodyclass %}blog{% endblock %}
+{% block blogclass %}active{% endblock %}
+{% block title %}{{ block.super }} &raquo; Blog{% endblock %}
+{% load comments %}
+
+{% block rss %}
+<link rel="alternate" type="application/rss+xml" title="Morris Lum's Blog - RSS" href="/feeds/blog/" />
+{% endblock %}
+
+{% load blog_extras %}
+
+{% block sidebar %}
+    <div class="box">
+        <h3>Archives</h3>
+        <ul class="archives">
+            {% for m in months %}
+            <li{% if forloop.last %} class="last"{% endif %}>
+                <a href="{% url blog-archive-month year=m|date:"Y",month=m|date:"m" %}">{{ m|date:"F Y" }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="box">
+        {% blogroll %}
+    </div>
+    <div class="box">
+        {% include "blog/tag_cloud.html" %}
+    </div>
+{% endblock %}

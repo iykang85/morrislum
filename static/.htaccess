@@ -1,0 +1,5 @@
+ExpiresActive On
+ExpiresDefault "access 1 year" 
+Header unset ETag
+FileETag None
+

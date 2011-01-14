@@ -1,0 +1,18 @@
+<h3>Exhibition{{ exhibitions|pluralize }}</h3>
+<ul class="exhibitions">
+    {% for e in exhibitions %}
+    <li>
+        <a 
+            {% if e.description %}
+                href="{{ e.get_absolute_url }}"
+            {% else %}
+                href="{{ e.url }}" class="external"
+            {% endif %}
+        >
+            {{ e.title }}
+        </a>
+    </li>
+    {% empty %}
+    <li>No exhibitions were found.</li>
+    {% endfor %}
+</ul>

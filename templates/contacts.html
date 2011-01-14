@@ -1,0 +1,13 @@
+<h3>Contact{{ contacts|pluralize }}</h3>
+<ul class="contacts">
+    {% for c in contacts%}
+    <li>
+        <a href="mailto:{{ c.email }}">
+            {{ c.email}}
+        </a>
+    </li>
+    {% empty %}
+    <li>No contacts were found.</li>
+    {% endfor %}
+</ul>
+
