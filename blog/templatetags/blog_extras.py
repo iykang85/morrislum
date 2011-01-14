@@ -1,7 +1,7 @@
 from django import template
 from django.template import resolve_variable
 from django.core.urlresolvers import reverse
-from blog.models import BlogrollLink
+from morrislum.blog.models import BlogrollLink
 
 register = template.Library()
 
