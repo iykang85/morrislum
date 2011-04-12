@@ -12,7 +12,7 @@
         {% with latest_gallery.latest|first as p %}
             <p class="preview">
                 <a class="preview" href="{{ latest_gallery.get_absolute_url }}">
-                    <img src="{{ p.get_preview_url}}" title="{{ p.title }}"/>
+                    <img src="{{ p.get_preview_url}}?v=1" title="{{ p.title }}"/>
                 </a>
             </p>
             <ul class="rest clearfix">
@@ -26,24 +26,10 @@
             </ul>
         {% endwith %}
 
-        <p class="blurb">{{ latest_gallery.description|truncatewords:50|wordwrap:10 }}</p>
         <p class="date">Originally published on {{ latest_gallery.date_added|date:"l, F jS, Y" }}</p>
         <p class="more"><a href="{{ latest_gallery.get_absolute_url }}">see gallery &raquo;</a></p>
     {% else %}
         <p>No galleries were found.</p>
-    {% endif %}
-</div>
-<div class="latest-post">
-    <h3>Latest Blog Post &raquo;</h3>
-    {% if latest_post %}
-        <h4><a href="{{ latest_post.get_absolute_url }}" title="Read this post">{{ latest_post.title }}</a></h4>
-        <p class="blurb">
-            {{ latest_post.content|safe|striptags|linebreaksbr|truncatewords:150}}
-        </p>
-        <p class="date">Posted on {{ latest_post.pub_date|date:"l, F jS, Y" }}</p>
-        <p class="more"><a href="{{ latest_post.get_absolute_url }}">read more &raquo;</a></p>
-    {% else %}
-        <p>No posts were found.</p>
     {% endif %}
 </div>
 {% endblock %}

@@ -192,23 +192,25 @@ a.external:hover {
 }
 
 #footer {
-    background-color: #333;
-    color: #77AEEF;
+    /*background-color: #333;
+    color: #77AEEF;*/
+    color: #333;
     min-height: 297px;
     height: auto !important;
     height: 297px;
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin: 40px 0 30px 0;
 }
-#footer a, #footer a:visited {
+/*#footer a, #footer a:visited {
     text-decoration: none;
     color: #FFF;
 }
 #footer a:hover, #footer a:focus {
     color: #CCC;
     background-color: transparent;
-}
+}*/
 #footer h3 {
+    color: #77AEEF;
     font-weight: bold;
     border-bottom: 1px dotted #77AEEF;
     font-family: Helvetica,Palatino,"Times New Roman",serif;
@@ -229,7 +231,7 @@ a.external:hover {
 }
 #footer #about div.content p:first-child:first-letter {
     font-family: Helvetica,Palatino,"Times New Roman",serif;
-    color: #FFF;
+    color: #445878;
     font-weight: bold;
     font-size: 200%;
     letter-spacing: 3px;
@@ -306,45 +308,43 @@ form label {
 form p.submit {
     padding-left: 10em;
 }
-body.preview div.comment {
+.preview div.comment {
     padding: 5px;
     border: 1px dotted #999;
     display: block;
 }
 
-body.index #main-content h3, body.index #main-content h4 {
+.index #main-content h3, .index #main-content h4 {
     display: inline;
     font-size: 1.4em;
     font-variant: small-caps;
 } 
-body.index #main-content h3 {
+.index #main-content h3 {
     color: #555;
     font-size: 1.1em;
 }
-body.index #content div.latest-gallery {
-    float: left;
-    width: 450px;
+.index #content div.latest-gallery {
     margin-right: 10px;
 }
-body.index #content div.latest-gallery div.first {
+.index #content div.latest-gallery div.first {
     margin-bottom: 5px;
 }
-body.index #content div.latest-gallery ul.rest li {
+.index #content div.latest-gallery ul.rest li {
     display: block;
     float: left;
     margin-right: 5px;
 }
-body.index #content div.latest-gallery ul.rest li.last {
+.index #content div.latest-gallery ul.rest li.last {
     margin-right: 0;
 }
-body.index #content div.latest-post {
+.index #content div.latest-post {
     float: right;    
     width: 250px;
 }
-body.index #content div.latest-post h4 {
+.index #content div.latest-post h4 {
     margin-bottom: 0;
 }
-body.index #content p.blurb {
+.index #content p.blurb {
     font-size: 0.9em;
     padding: 0 25px;
     margin: 0;
@@ -353,37 +353,37 @@ body.index #content p.blurb {
     line-height: 1.7em;
 }
 
-body.index #content p.blurb:before,
-body.index #content p.blurb:after {
+.index #content p.blurb:before,
+.index #content p.blurb:after {
     color: #CCC;
     display: block;
     font-size: 400%;
     width: 50px;
 }
-body.index #content p.blurb:before,
-body.index #content p.blurb:after {
+.index #content p.blurb:before,
+.index #content p.blurb:after {
     content: '"'; 
 }
-body.index #content p.blurb:before {
+.index #content p.blurb:before {
     content: open-quote;
     height: 0;
     margin-left: -20px;
     margin-top: 25px;
 }
-body.index #content p.blurb:after {
+.index #content p.blurb:after {
     content: close-quote;
     margin-top: 10px;
     margin-left: 200px;
 }
-body.index #content  div.latest-gallery p.blurb:after {
+.index #content  div.latest-gallery p.blurb:after {
     margin-left: 405px;
 }
-body.index #content p.more {
+.index #content p.more {
     text-align: right;
     margin: 0;
     font-size: .9em;
 }
-body.index p.date {
+.index p.date {
     font-size: .85em;
 }
 
@@ -420,8 +420,8 @@ div.post div.post-content p.date {
     color: #999;
     font-size: .9em;
 }
-body.blog h4,
-body.blog h5 {
+.blog h4,
+.blog h5 {
     font-size: 1.2em;
 }
 #sidebar ul.tag-cloud a {
@@ -489,11 +489,11 @@ body.blog h5 {
     margin-left: 15px;
     padding-left: 2px;
 }
-body.blog #id_name, body.blog #id_email, body.blog #id_url,
-body.preview #id_name, body.preview #id_email, body.preview #id_url {
+.blog #id_name, .blog #id_email, .blog #id_url,
+.preview #id_name, .preview #id_email, .preview #id_url {
     width:20em;
 }
-body.blog #id_comment, body.preview #id_comment {
+.blog #id_comment, .preview #id_comment {
     width: 40em;
 }
 
@@ -504,37 +504,37 @@ div.gallery-photo {
 div.gallery-photo.full-photo {
     float: none;
 }
-body.gallery p.other {
+.gallery p.other {
     border-top: 1px dotted #1C1D21;
     padding-top: 10px;
     margin-top: 10px;
 }
-body.gallery #main-content div.meta {
+.gallery #main-content div.meta {
     float: right;
     font-size: 1.2em;
     width: 330px;
 }
-body.gallery #main-content div.meta p.date {
+.gallery #main-content div.meta p.date {
     text-align: left;
     margin-bottom: 10px;
     color: #1C1D21;
 }
-body.gallery #main-content div.meta p.description {
+.gallery #main-content div.meta p.description {
     font-style: normal;
 }
-body.gallery #main-content div.photo-gallery.full {
+.gallery #main-content div.photo-gallery.full {
     background-color: #555;
     float: left;
     width: 370px;
     padding: 5px;
 }
-body.gallery #main-content div.photo-gallery.full div.gallery-photo {
+.gallery #main-content div.photo-gallery.full div.gallery-photo {
     margin: 2px 5px 2px 0;
 }
-body.gallery #main-content div.photo-gallery.full div.gallery-photo.third {
+.gallery #main-content div.photo-gallery.full div.gallery-photo.third {
     margin-right: 0;
 }
-body.gallery #main-content div.photo-gallery.list {
+.gallery #main-content div.photo-gallery.list {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px dotted #1C1D21;
@@ -542,25 +542,25 @@ body.gallery #main-content div.photo-gallery.list {
 #page_controls p {
     text-align: center;
 }
-body.gallery #main-content p.tags {
+.gallery #main-content p.tags {
     margin-top: 10px;
     font-size: .9em;
     color: #999;
 }
-body.gallery #comments {
+.gallery #comments {
     margin-top: 15px;
 }
-body.gallery #comments,
-body.gallery #comment-form {
+.gallery #comments,
+.gallery #comment-form {
     float: left;
     width: 380px;
 }
 
 /* about */
-body.about #main-content p {
+.about #main-content p {
     margin: 1em 0;
 }
-body.about #main-content p:first-child:first-letter {
+.about #main-content p:first-child:first-letter {
     font-family: Helvetica,Palatino,"Times New Roman",serif;
     color: #445878;
     font-weight: bold;
@@ -569,7 +569,7 @@ body.about #main-content p:first-child:first-letter {
 }
 
 /* CV */
-body.resume #main-content li {
+.resume #main-content li {
     list-style-type: square;
     margin: 0 15px;
     padding: 3px 5px;
