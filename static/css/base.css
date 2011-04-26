@@ -117,11 +117,11 @@ a.external:hover {
     text-transform: lowercase;
     line-height: 1.2em;
 }
-#header a, #header a:visited {
+#header h1 a, #header h1 a:visited {
     text-decoration: none;
     color: #31353D;
 }
-#header a:hover, #header a:focus {
+#header h1 a:hover, #header h1 a:focus {
     color: #5C3C25;
 }
 #header #nav {
@@ -180,6 +180,12 @@ a.external:hover {
     padding: 5px;
     width: 210px;
 }
+
+#sidebar h2 {
+	font-size: 1.4em;
+    font-variant: small-caps;
+}
+
 #sidebar h3 {
     border-bottom: 1px dotted #1C1D21;
     padding: 1px 0;
@@ -288,6 +294,16 @@ ul.tag-cloud li {
     width: auto;
     border-bottom: none;
 }
+#sidebar li.header {
+	padding: 4px 0 6px;
+}
+#sidebar h3.header {
+	display:inline;
+	color: #77aeef;
+	font-size: 13px;
+	border-bottom: none;
+	font-variant: small-caps;
+}
 
 /* forms */
 form ul.errorlist {
@@ -319,8 +335,14 @@ form p.submit {
     font-size: 1.4em;
     font-variant: small-caps;
 } 
+.index #main-content h4 a, .index #main-content h4 a:visited {
+	color: #555;
+}
+.index #main-content h4 a:hover, .index #main-content h4 a:focus {
+	color: #6080B2;
+}
 .index #main-content h3 {
-    color: #555;
+    color: #77aeef;
     font-size: 1.1em;
 }
 .index #content div.latest-gallery {

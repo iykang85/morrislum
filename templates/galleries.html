@@ -1,4 +1,5 @@
 <ul class="galleries">
+	<li class="header"><h3 class="header">Works</h3></li>
     {% for g in galleries|slice:":20" %}
     <li>
         <a href="{{ g.get_absolute_url }}">
